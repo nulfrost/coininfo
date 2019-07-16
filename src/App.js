@@ -1,25 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import CoinInfoContainer from './components/CoinInfoContainer';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import CoinDetails from './components/CoinDetails';
+import AppContainer from './components/styles/AppContainer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      <Router>
+        <Switch>
+          <Route exact path='/' component={CoinInfoContainer} />
+          <Route exact path='/coin/:id' component={CoinDetails} />
+        </Switch>
+      </Router>
+    </AppContainer>
   );
 }
 
